@@ -1,6 +1,8 @@
-export default [
+const categories = [
   "FAKE: electronics",
-  "FAKE: jewelery",
+  "FAKE: jewelry",
   "FAKE: men's clothing",
   "FAKE: women's clothing",
 ];
+
+export default categories;
