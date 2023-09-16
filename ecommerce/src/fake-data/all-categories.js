@@ -1,6 +1,6 @@
 const categories = [
   "FAKE: electronics",
-  "FAKE: jewelry",
+  "FAKE: jewelery",
   "FAKE: men's clothing",
   "FAKE: women's clothing",
 ];

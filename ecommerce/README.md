@@ -17,5 +17,5 @@ What you need to have done at the end of the week:
 
 ## Solution
 
-- [Live URL](e-commerce-shop-react.netlify.app)
+- [Live URL](https://e-commerce-shop-react.netlify.app)
 - [Source Code](https://github.com/HackYourAssignment/React-class44/pull/1)
