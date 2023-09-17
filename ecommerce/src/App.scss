@@ -28,12 +28,10 @@ body {
     padding-block: 1rem;
 
     .categories-list {
-      width: 100%;
+      max-width: 100%;
       display: flex;
       justify-content: flex-start;
       list-style: none;
-      overflow-x: auto;
-      overflow-x: auto;
 
       .category {
         background-color: #efeff0;
@@ -42,7 +40,6 @@ body {
         margin: 2px;
         padding: 0.8rem;
         transition: background-color, 100ms;
-        text-wrap: nowrap;
 
         &:hover {
           background-color: #d6d6d8;
@@ -91,6 +88,8 @@ body {
 
 @media only screen and (max-width: 700px) {
   .App {
+    max-width: 700px;
+
     .products-container {
       .products-list {
         flex-direction: column;
@@ -102,6 +101,21 @@ body {
           .product-image {
             height: 90%;
           }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .App {
+    .categories-container {
+      .categories-list {
+        overflow-x: auto;
+        justify-content: center;
+
+        .category {
+          font-size: 0.9rem;
         }
       }
     }
