@@ -96,7 +96,6 @@ body {
 }
 @media only screen and (max-width: 420px) {
   .App .categories-container .categories-list {
-    overflow-x: auto;
     justify-content: center;
   }
   .App .categories-container .categories-list .category {
