@@ -1,6 +1,6 @@
 import "./App.css";
 import ProductDetailPage from "./pages/productDetailPage/ProductDetailPage";
-import ProductPage from "./pages/productPage/ProductPage";
+import ProductsPage from "./pages/productsPage/ProductsPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,9 +8,8 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" exact element={<ProductPage />}>
-            <Route path="product/:productID" element={<ProductDetailPage />} />
-          </Route>
+          <Route path="/" exact element={<ProductsPage />} />
+          <Route path="/product/:productID" element={<ProductDetailPage />} />
         </Routes>
       </Router>
     </div>

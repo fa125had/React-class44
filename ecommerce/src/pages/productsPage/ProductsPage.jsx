@@ -2,7 +2,7 @@ import CategoriesList from "../../components/CategoriesList.jsx";
 import ProductsList from "../../components/ProductsList.jsx";
 import { useState } from "react";
 
-const ProductPage = () => {
+const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
 
   return (
@@ -17,4 +17,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductsPage;

@@ -51,8 +51,7 @@ const ProductsList = ({ selectedCategory }) => {
               return (
                 <Product
                   key={product.id}
-                  title={product.title}
-                  imgURL={product.image}
+                  product={product}
                 />
               );
             })}
