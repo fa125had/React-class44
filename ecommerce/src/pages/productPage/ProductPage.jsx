@@ -1,9 +1,12 @@
-import React from 'react'
+import CategoriesList from "../../components/CategoriesList.jsx";
 
 const ProductPage = () => {
   return (
-    <div>ProductPage</div>
-  )
-}
+    <div>
+      <h1>Products</h1>
+      <CategoriesList />
+    </div>
+  );
+};
 
-export default ProductPage
+export default ProductPage;

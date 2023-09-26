@@ -5,41 +5,32 @@ import { ClipLoader } from "react-spinners";
 const ProductsList = ({ selectedCategory }) => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       // fetch products based on category
       try {
+        setError(null);
+        setLoading(true);
+
         const endpoint = selectedCategory
           ? `https://fakestoreapi.com/products/category/${selectedCategory}`
-          : "https://fakestoreapi.com/products";
+          : "https://fakestoreapi.com/products?limit=15";
         const res = await fetch(endpoint);
+        if (res.status !== 200) throw new Error("Error API Response");
         const products = await res.json();
 
         setProducts(products);
+
+        setLoading(false);
       } catch (error) {
         setError(error);
       }
     };
 
-    setLoading(true);
     fetchProducts();
-    setLoading(false);
   }, [selectedCategory]);
-
-  useEffect(() => {
-    if (selectedCategory) {
-      const filteredByCategory = products.filter(
-        (product) => product.category === selectedCategory
-      );
-
-      setFilteredProducts(filteredByCategory);
-    } else {
-      setFilteredProducts(products);
-    }
-  }, [selectedCategory, products]);
 
   if (loading) {
     return (
@@ -55,21 +46,17 @@ const ProductsList = ({ selectedCategory }) => {
         <p>{error}</p>
       ) : (
         <section className="products-container">
-          {filteredProducts ? (
-            <ul className="products-list">
-              {filteredProducts.map((product) => {
-                return (
-                  <Product
-                    key={product.id}
-                    title={product.title}
-                    imgURL={product.image}
-                  />
-                );
-              })}
-            </ul>
-          ) : (
-            <p>Empty</p>
-          )}
+          <ul className="products-list">
+            {products.map((product) => {
+              return (
+                <Product
+                  key={product.id}
+                  title={product.title}
+                  imgURL={product.image}
+                />
+              );
+            })}
+          </ul>
         </section>
       )}
     </>

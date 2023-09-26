@@ -11,29 +11,26 @@ const CategoriesList = () => {
 
   useEffect(() => {
     const fetchAllCategories = async () => {
-      const endpoint = "https://fakestoreapi.com/products/categories";
-
       try {
-        const res = await fetch(endpoint);
+        setError(null);
+        setLoading(true);
 
+        const endpoint = "https://fakestoreapi.com/products/categories";
+        const res = await fetch(endpoint);
+        if (res.status !== 200) throw new Error("Error API Response");
         const categories = await res.json();
 
+        console.log(categories);
+        
         setCategories(categories);
 
-        console.log("category state: " + categories);
+        setLoading(false);
       } catch (error) {
         setError(error);
       }
     };
 
-    try {
-      setLoading(true);
-      fetchAllCategories();
-      setCategories(categories);
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-    }
+    fetchAllCategories();
   }, []);
 
   const handleClick = ({ target }) => {
