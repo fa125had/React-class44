@@ -1,10 +1,8 @@
 import Category from "./Category";
-import ProductsList from "./ProductsList";
 import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 
-const CategoriesList = () => {
-  const [selectedCategory, setSelectedCategory] = useState("");
+const CategoriesList = ({ selectedCategory, setSelectedCategory }) => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -20,8 +18,6 @@ const CategoriesList = () => {
         if (res.status !== 200) throw new Error("Error API Response");
         const categories = await res.json();
 
-        console.log(categories);
-        
         setCategories(categories);
 
         setLoading(false);
@@ -69,8 +65,6 @@ const CategoriesList = () => {
           </ul>
         </nav>
       )}
-
-      <ProductsList selectedCategory={selectedCategory} />
     </>
   );
 };
