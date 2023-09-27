@@ -85,6 +85,24 @@ body {
       }
     }
   }
+
+  .product-detail-container {
+    .product-details {
+      display: flex;
+      flex-direction: column;
+
+      article {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          max-width: 25rem;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -105,6 +123,18 @@ body {
         }
       }
     }
+
+    .product-detail-container {
+      .product-details {
+        article {
+          flex-direction: column;
+
+          img {
+            max-width: 20rem;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -119,5 +149,19 @@ body {
         }
       }
     }
+
+       .product-detail-container {
+    .product-details {
+
+      article {
+        gap: 1rem;
+
+        img {
+          max-width: 15rem;
+        }
+      }
+
+    }
+  }
   }
 }

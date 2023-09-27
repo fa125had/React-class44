@@ -79,6 +79,19 @@ body {
      object-fit: contain;
   height: 15rem;
 }
+.App .product-detail-container .product-details {
+  display: flex;
+  flex-direction: column;
+}
+.App .product-detail-container .product-details article {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+.App .product-detail-container .product-details article img {
+  max-width: 25rem;
+}
 
 @media only screen and (max-width: 700px) {
   .App {
@@ -94,6 +107,12 @@ body {
   .App .products-container .products-list .product .product-image {
     height: 90%;
   }
+  .App .product-detail-container .product-details article {
+    flex-direction: column;
+  }
+  .App .product-detail-container .product-details article img {
+    max-width: 20rem;
+  }
 }
 @media only screen and (max-width: 420px) {
   .App .categories-container .categories-list {
@@ -101,5 +120,11 @@ body {
   }
   .App .categories-container .categories-list .category {
     font-size: 0.9rem;
+  }
+  .App .product-detail-container .product-details article {
+    gap: 1rem;
+  }
+  .App .product-detail-container .product-details article img {
+    max-width: 15rem;
   }
 }/*# sourceMappingURL=App.css.map */

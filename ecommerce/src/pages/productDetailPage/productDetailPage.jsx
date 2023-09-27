@@ -28,21 +28,40 @@ const ProductDetailPage = () => {
   }, [productID]);
 
   if (loading) {
-    return <ClipLoader />;
+    return (
+      <div className="spinner">
+        <ClipLoader />
+      </div>
+    );
   }
 
-  console.log(productID, product);
-
+  console.log(product);
   return (
     <>
       {error ? (
         <p>{error}</p>
       ) : (
-        <div className="product-detail-container">
-          <h2 className="product-title">{product.title}</h2>
-          {/* <p className="product-description">{product.description}</p> */}
-          <p>Product</p>
-        </div>
+        <section className="product-detail-container">
+          {product ? (
+            <section className="product-details">
+              <header>
+                <h2 className="product-title">{product.title}</h2>
+              </header>
+              <article>
+                <img src={`${product.image}`} alt={`${product.title}`} />
+                <p className="product-description">{product.description}</p>
+              </article>
+              <div>
+                <p className="product-price">Price: {product.price}</p>
+                <p className="product-rating">
+                  Rate: {product.rating.rate} of {product.rating.count} Votes
+                </p>
+              </div>
+            </section>
+          ) : (
+            <ClipLoader />
+          )}
+        </section>
       )}
     </>
   );
