@@ -1,0 +1,17 @@
+.main-title {
+  font-family: monospace, sans-serif;
+}
+
+.main-menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .navbar-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+  }
+}

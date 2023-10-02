@@ -2,12 +2,13 @@ import { useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import "../ProductDetailPage/productDetailPage.css";
 import { useAPI } from "../../hooks/useAPI";
+import Navbar from "../../components/Navbar/Navbar";
 
 const ProductDetailPage = () => {
   const { productID } = useParams();
   const endpoint = `https://fakestoreapi.com/products/${productID}`;
 
-  const {data: product, loading, error} = useAPI(endpoint);
+  const { data: product, loading, error } = useAPI(endpoint);
 
   if (loading) {
     return (
@@ -43,6 +44,8 @@ const ProductDetailPage = () => {
                 Rate: {product.rating.rate} of {product.rating.count} Votes
               </p>
             </div>
+
+            <Navbar />
           </section>
         ) : (
           <ClipLoader />

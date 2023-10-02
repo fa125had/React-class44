@@ -1,0 +1,15 @@
+.main-title {
+  font-family: monospace, sans-serif;
+}
+
+.main-menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-menu .navbar-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}/*# sourceMappingURL=products-page.css.map */

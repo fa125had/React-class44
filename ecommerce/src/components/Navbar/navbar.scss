@@ -1,0 +1,35 @@
+.navbar-container {
+  width: 100%;
+  padding-block: 1rem;
+
+  .navbar-list {
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    gap: 1rem;
+
+    .nav-item {
+      background-color: #efeff0;
+      cursor: pointer;
+      font-weight: 700;
+      margin: 2px;
+      padding: 0.8rem;
+      transition: background-color, 100ms;
+
+      &:hover {
+        background-color: #d6d6d8;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .App {
+    .navbar-container {
+      .navbar-list {
+        justify-content: center;
+      }
+    }
+  }
+}
