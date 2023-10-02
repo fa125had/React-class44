@@ -1,0 +1,23 @@
+.categories-container {
+  width: 100%;
+  padding-block: 1rem;
+
+  .categories-list {
+    max-width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .App {
+    .categories-container {
+      .categories-list {
+        justify-content: center;
+
+      }
+    }
+
+  }
+}

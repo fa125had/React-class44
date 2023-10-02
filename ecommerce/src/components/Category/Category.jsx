@@ -1,3 +1,5 @@
+import "../Category/category.css";
+
 const Category = ({ category, onClick, selectedCategory }) => {
   const isSelected = category === selectedCategory;
 

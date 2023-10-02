@@ -1,0 +1,31 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  width: calc(33% - 1rem);
+  text-align: center;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.product .product-title {
+  font-size: 1rem;
+  overflow: hidden;
+  padding-top: 0.5rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.product .product-image {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 15rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .product {
+    width: 100%;
+    max-width: 700px;
+    height: 20rem;
+  }
+  .product .product-image {
+    height: 90%;
+  }
+}/*# sourceMappingURL=product.css.map */

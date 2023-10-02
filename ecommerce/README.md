@@ -1,22 +1,23 @@
-# Ecommerce Project Week II
+# Ecommerce Project III
 
 ## 1. Setup
 
-Make sure you created a new week2 branch from the `main` branch of your forked repo. Then copy over the `ecommerce` folder you made last week into the `week2/project` folder. That way any feedback you get for week1 can be changed in the week1 branch and you are free to refactor this week as you see fit. This does mean you may need to apply the same changes to multiple branches, but let's say that that is good for the learning process :).
+Make sure you created a new week3 branch from the `main` branch of your forked repo. Then copy over the `ecommerce` folder you made last week into the `week3/project` folder.
+
+Copy over the `assets` folder to your `ecommerce/src` folder. We will use these svg files for our favorites functionality.
 
 ## 2. Requirements
 
-We are going to focus on linking up our app to the API this week. By the end of the assignment your application should work similar to this live version [here](https://hyf-react-w2-example.netlify.app/)
-
-_Note: The API is a fully open API so can be a little slow to respond sometimes. Great for checking your loading UX!_
+We are going to implement some cool new features this week now that we have all of the React building blocks at our disposal. By the end of the assignment your application should work similar to this live version [here](https://hyf-react-w3-example.netlify.app)
 
 What you need to have done at the end of the week:
 
-- The fake-data directory should not be a part of your project anymore
-- Your app will need to make 2 queries to the following endpoints:
-  - `https://fakestoreapi.com/products/categories` -> To get all the categories
-  - `https://fakestoreapi.com/products` or `https://fakestoreapi.com/products/category/:selectedCategory` -> To get the products. The API needs to do the filtering, not the frontend. Usually the amount of products will be too large to do the filtering on the frontend.
-- Your app needs to show that it is loading when waiting on the request to come back. You can test this by mimicing a slow connection in your browsers' developer tools
-- Your app needs to show an error message if the request failed
-- Your app needs to go to a detail page `/product/:id` whenever you click on the product card in the list. This should get the details from the endpoint: `https://fakestoreapi.com/products/<id>`. For now we won't add a navigation bar, the browsers 'back' button will do the trick. _TIP: You will need to add the `react-router-dom` package and add the routing to your app regardless._
+- There should be a context that stores the `id` of all of the favorites of the user. You should not store the whole object!
+- For the images in the product list as well as the product details page there needs to be a heart that if clicked will update the favorites array in the context. The heart should show the right svg file depending if it is favorite or not.
+- Your app should have a favorites page to list all of the products the user has favorite. You will need to perform multiple fetches as you only have the `id` of the favorites.
+  > Storing the whole object would make this easier of course and in this example would probably be a better solution, but we want to challenge you a bit by adding a multiple fetch scenario.
+- Add a navigation bar at the top that handles routing between `/` and `/favorites`. The `/favorites` route should go the favorites page.
+- If you did the same things as us then in the Products and ProductDetails pages you will have quite a lot of duplicate logic concerning the `loading` and `error` states of all those requests. Fix that by creating a `useFetch` custom hook.
+  > Your custom hook will have a couple of challenges. The URL for the products changes and you will have to perform that fetch whenever the user clicks a category so you will need to give the user of your hook the option to do that.
+  > Extra challenge: We purposefully do not say Favorites page here as that would make the custom hook even more difficult to build. If you are up for the challenge, add functionality to your hook for multiple fetches!
 - You need to deploy your app somewhere (using something like [netlify](https://www.netlify.com)) and put the link in your PR! Make it a different one than the previous week.

@@ -1,31 +1,13 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
+import "../ProductDetailPage/productDetailPage.css";
+import { useAPI } from "../../hooks/useAPI";
 
 const ProductDetailPage = () => {
   const { productID } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const endpoint = `https://fakestoreapi.com/products/${productID}`;
 
-  useEffect(() => {
-    try {
-      setError(null);
-      setLoading(true);
-      const fetchProduct = async () => {
-        const res = await fetch(
-          `https://fakestoreapi.com/products/${productID}`
-        );
-        if (res.status !== 200) throw new Error("Error API Response");
-        const data = await res.json();
-        setProduct(data);
-        setLoading(false);
-      };
-      fetchProduct();
-    } catch (error) {
-      setError(error);
-    }
-  }, [productID]);
+  const {data: product, loading, error} = useAPI(endpoint);
 
   if (loading) {
     return (
@@ -35,34 +17,37 @@ const ProductDetailPage = () => {
     );
   }
 
-  console.log(product);
+  if (error) {
+    return (
+      <div className="error-container">
+        <p>{error}</p>
+      </div>
+    );
+  }
+
   return (
     <>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <section className="product-detail-container">
-          {product ? (
-            <section className="product-details">
-              <header>
-                <h2 className="product-title">{product.title}</h2>
-              </header>
-              <article>
-                <img src={`${product.image}`} alt={`${product.title}`} />
-                <p className="product-description">{product.description}</p>
-              </article>
-              <div>
-                <p className="product-price">Price: {product.price}</p>
-                <p className="product-rating">
-                  Rate: {product.rating.rate} of {product.rating.count} Votes
-                </p>
-              </div>
-            </section>
-          ) : (
-            <ClipLoader />
-          )}
-        </section>
-      )}
+      <section className="product-detail-container">
+        {product ? (
+          <section className="product-details">
+            <header>
+              <h2 className="product-title">{product.title}</h2>
+            </header>
+            <article>
+              <img src={`${product.image}`} alt={`${product.title}`} />
+              <p className="product-description">{product.description}</p>
+            </article>
+            <div>
+              <p className="product-price">Price: {product.price}</p>
+              <p className="product-rating">
+                Rate: {product.rating.rate} of {product.rating.count} Votes
+              </p>
+            </div>
+          </section>
+        ) : (
+          <ClipLoader />
+        )}
+      </section>
     </>
   );
 };

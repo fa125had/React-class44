@@ -1,0 +1,11 @@
+.products-container {
+  width: 100%;
+}
+.products-container .products-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}/*# sourceMappingURL=product-list.css.map */

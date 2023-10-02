@@ -1,0 +1,21 @@
+.category {
+  background-color: #efeff0;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 2px;
+  padding: 0.8rem;
+  transition: background-color, 100ms;
+}
+.category:hover {
+  background-color: #d6d6d8;
+}
+
+.selected {
+  background-color: #d6d6d8;
+}
+
+@media only screen and (max-width: 420px) {
+  .category {
+    font-size: 0.9rem;
+  }
+}/*# sourceMappingURL=category.css.map */

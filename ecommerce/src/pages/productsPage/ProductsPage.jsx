@@ -1,5 +1,5 @@
-import CategoriesList from "../../components/CategoriesList.jsx";
-import ProductsList from "../../components/ProductsList.jsx";
+import CategoriesList from "../../components/CategoriesList/CategoriesList.jsx";
+import ProductsList from "../../components/ProductsList/ProductsList.jsx";
 import { useState } from "react";
 
 const ProductsPage = () => {
