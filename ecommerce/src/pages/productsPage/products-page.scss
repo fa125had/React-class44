@@ -12,6 +12,11 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .main-menu {
+    flex-direction: column-reverse;
   }
 }

@@ -1,0 +1,46 @@
+.favPage-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .favPage-title {
+    margin-block-end: 2rem;
+  }
+
+  .favPage-list {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .favPage-item {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      width: 10rem;
+      height: 20rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      padding: 0.25rem;
+
+      .fav-product-title {
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      .fav-product-image {
+        width: 7rem;
+        height: 10rem;
+        object-fit: contain;
+        padding: 0.25rem;
+
+      }
+    }
+  }
+}

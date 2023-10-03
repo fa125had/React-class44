@@ -5,6 +5,14 @@
   text-align: center;
   padding: 0.5rem;
   cursor: pointer;
+  position: relative;
+  box-shadow: #80808087 0rem 0rem 0.8rem 0.1rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+
+  &:hover {
+    box-shadow: #80808087 0rem 0rem 0.8rem 0.6rem;
+  }
 
   .product-title {
     font-size: 1rem;
@@ -17,6 +25,16 @@
   .product-image {
     object-fit: contain;
     height: 15rem;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .favorite-icon {
+    max-width: 2rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.3rem;
   }
 }
 
@@ -25,13 +43,5 @@
     width: 100%;
     max-width: 700px;
     height: 20rem;
-
-    .product-image {
-      height: 90%;
-    }
   }
-}
-
-@media only screen and (max-width: 420px) {
-
 }
