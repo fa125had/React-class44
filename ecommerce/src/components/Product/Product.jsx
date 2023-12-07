@@ -4,20 +4,10 @@ import "../Product/product.css";
 
 const Product = ({ product }) => {
   const navigate = useNavigate();
-  const { favorites, setFavorites } = useFavorites();
-
-  const isFavorite = favorites.includes(product.id);
+  const { isFavorite, toggleFavorite } = useFavorites(product.id);
 
   const handleClick = () => {
     navigate(`/product/${product.id}`);
-  };
-
-  const toggleFavorite = () => {
-    if (isFavorite) {
-      setFavorites(favorites.filter((id) => id !== product.id));
-    } else {
-      setFavorites([...favorites, product.id]);
-    }
   };
 
   return (

@@ -4,9 +4,8 @@ import "../CategoriesList/categories-list.css";
 import { useAPI } from "../../hooks/useAPI";
 
 const CategoriesList = ({ selectedCategory, setSelectedCategory }) => {
-
   const endpoint = "https://fakestoreapi.com/products/categories";
-  const {data: categories, loading, error} = useAPI(endpoint);
+  const { data: categories, loading, error } = useAPI(endpoint);
 
   const handleClick = ({ target }) => {
     if (selectedCategory === target.innerHTML) {
@@ -36,16 +35,17 @@ const CategoriesList = ({ selectedCategory, setSelectedCategory }) => {
     <>
       <nav className="categories-container">
         <ul className="categories-list">
-          {categories && categories.map((category) => {
-            return (
-              <Category
-                onClick={handleClick}
-                key={category}
-                category={category}
-                selectedCategory={selectedCategory}
-              />
-            );
-          })}
+          {categories &&
+            categories.map((category) => {
+              return (
+                <Category
+                  onClick={handleClick}
+                  key={category}
+                  category={category}
+                  selectedCategory={selectedCategory}
+                />
+              );
+            })}
         </ul>
       </nav>
     </>

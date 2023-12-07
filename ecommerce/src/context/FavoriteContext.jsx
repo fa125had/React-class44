@@ -12,10 +12,22 @@ export const FavoriteProvider = ({ children }) => {
   );
 };
 
-export const useFavorites = () => {
+export const useFavorites = (productId) => {
   const context = useContext(FavoriteContext);
   if (!context) {
     throw new Error("Error using context");
   }
-  return context;
+
+  const { favorites, setFavorites } = context;
+  const isFavorite = favorites.includes(productId);
+
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      setFavorites(favorites.filter((id) => id !== productId));
+    } else {
+      setFavorites([...favorites, productId]);
+    }
+  };
+
+  return { favorites, setFavorites, isFavorite, toggleFavorite };
 };
